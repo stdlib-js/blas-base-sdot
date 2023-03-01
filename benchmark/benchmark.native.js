@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2023 The Stdlib Authors.
+* Copyright (c) 2020 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
 
 var resolve = require( 'path' ).resolve;
 var bench = require( '@stdlib/bench' );
-var uniform = require( '@stdlib/random-base-uniform' ).factory;
-var filledarrayBy = require( '@stdlib/array-filled-by' );
+var randu = require( '@stdlib/random-base-randu' );
 var isnan = require( '@stdlib/math-base-assert-is-nan' );
 var pow = require( '@stdlib/math-base-special-pow' );
+var Float32Array = require( '@stdlib/array-float32' );
 var tryRequire = require( '@stdlib/utils-try-require' );
 var pkg = require( './../package.json' ).name;
 
@@ -36,7 +36,6 @@ var sdot = tryRequire( resolve( __dirname, './../lib/sdot.native.js' ) );
 var opts = {
 	'skip': ( sdot instanceof Error )
 };
-var rand = uniform( -100.0, 100.0 );
 
 
 // FUNCTIONS //
@@ -49,8 +48,16 @@ var rand = uniform( -100.0, 100.0 );
 * @returns {Function} benchmark function
 */
 function createBenchmark( len ) {
-	var x = filledarrayBy( len, 'float32', rand );
-	var y = filledarrayBy( len, 'float32', rand );
+	var x;
+	var y;
+	var i;
+
+	x = new Float32Array( len );
+	y = new Float32Array( len );
+	for ( i = 0; i < x.length; i++ ) {
+		x[ i ] = ( randu()*20.0 ) - 10.0;
+		y[ i ] = ( randu()*20.0 ) - 10.0;
+	}
 	return benchmark;
 
 	function benchmark( b ) {

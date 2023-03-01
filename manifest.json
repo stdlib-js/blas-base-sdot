@@ -39,12 +39,7 @@
 			],
 			"libraries": [],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		},
 		{
 			"os": "linux",
@@ -60,12 +55,7 @@
 				"-lpthread"
 			],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		},
 		{
 			"os": "mac",
@@ -80,12 +70,7 @@
 			],
 			"libraries": [],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		},
 		{
 			"os": "mac",
@@ -100,12 +85,7 @@
 				"-lblas"
 			],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		},
 		{
 			"os": "mac",
@@ -121,12 +101,7 @@
 				"-lpthread"
 			],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		},
 		{
 			"os": "win",
@@ -139,12 +114,7 @@
 			],
 			"libraries": [],
 			"libpath": [],
-			"dependencies": [
-				"@stdlib/napi-export",
-				"@stdlib/napi-argv",
-				"@stdlib/napi-argv-int64",
-				"@stdlib/napi-argv-strided-float32array"
-			]
+			"dependencies": []
 		}
 	]
 }
