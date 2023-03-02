@@ -2,7 +2,7 @@
 
 @license Apache-2.0
 
-Copyright (c) 2019 The Stdlib Authors.
+Copyright (c) 2023 The Stdlib Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -41,38 +41,30 @@ The [dot product][dot-product] (or scalar product) is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-sdot
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-sdot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sdot@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var sdot = require( 'path/to/vendor/umd/blas-base-sdot/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sdot@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.sdot;
-})();
-</script>
+var sdot = require( '@stdlib/blas-base-sdot' );
 ```
 
 #### sdot( N, x, strideX, y, strideY )
@@ -97,18 +89,15 @@ The function has the following parameters:
 -   **y**: input [`Float32Array`][@stdlib/array/float32].
 -   **strideY**: index increment for `y`.
 
-The `N` and `stride` parameters determine which elements in `x` and `y` are accessed at runtime. For example, to calculate the dot product of every other value in `x` and the first `N` elements of `y` in reverse order,
+The `N` and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to calculate the dot product of every other value in `x` and the first `N` elements of `y` in reverse order,
 
 ```javascript
 var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float32Array( [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ] );
 
-var N = floor( x.length / 2 );
-
-var z = sdot( N, x, 2, y, -1 );
+var z = sdot( 3, x, 2, y, -1 );
 // returns 9.0
 ```
 
@@ -118,7 +107,6 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 
 ```javascript
 var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
 
 // Initial arrays...
 var x0 = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -128,9 +116,7 @@ var y0 = new Float32Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
 var x1 = new Float32Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 var y1 = new Float32Array( y0.buffer, y0.BYTES_PER_ELEMENT*3 ); // start at 4th element
 
-var N = floor( x0.length / 2 );
-
-var z = sdot( N, x1, -2, y1, 1 );
+var z = sdot( 3, x1, -2, y1, 1 );
 // returns 128.0
 ```
 
@@ -153,18 +139,15 @@ The function has the following additional parameters:
 -   **offsetX**: starting index for `x`.
 -   **offsetY**: starting index for `y`.
 
-While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the `offsetX` and `offsetY` parameters support indexing semantics based on starting indices. For example, to calculate the dot product of every other value in `x` starting from the second value with the last 3 elements in `y` in reverse order
+While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying `buffer`, the offset parameters support indexing semantics based on starting indices. For example, to calculate the dot product of every other value in `x` starting from the second value with the last 3 elements in `y` in reverse order
 
 ```javascript
 var Float32Array = require( '@stdlib/array-float32' );
-var floor = require( '@stdlib/math-base-special-floor' );
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float32Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
 
-var N = floor( x.length / 2 );
-
-var z = sdot.ndarray( N, x, 2, 1, y, -1, y.length-1 );
+var z = sdot.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 // returns 128.0
 ```
 
@@ -189,37 +172,19 @@ var z = sdot.ndarray( N, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sdot@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var sdot = require( '@stdlib/blas-base-sdot' );
 
-var x;
-var y;
-var i;
-
-x = new Float32Array( 10 );
-y = new Float32Array( 10 );
-for ( i = 0; i < x.length; i++ ) {
-    x[ i ] = round( randu()*100.0 );
-    y[ i ] = round( randu()*10.0 );
-}
+var x = filledarrayBy( 10, 'float32', discreteUniform( 0, 100 ) );
 console.log( x );
+
+var y = filledarrayBy( x.length, 'float32', discreteUniform( 0, 10 ) );
 console.log( y );
 
 var z = sdot( x.length, x, 1, y, -1 );
 console.log( z );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -296,7 +261,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
@@ -318,19 +283,19 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [sdot]: http://www.netlib.org/lapack/explore-html/df/d28/group__single__blas__level1.html
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/umd
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 <!-- <related-links> -->
 
-[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot/tree/umd
+[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot
 
-[@stdlib/blas/base/dsdot]: https://github.com/stdlib-js/blas-base-dsdot/tree/umd
+[@stdlib/blas/base/dsdot]: https://github.com/stdlib-js/blas-base-dsdot
 
-[@stdlib/blas/base/sdsdot]: https://github.com/stdlib-js/blas-base-sdsdot/tree/umd
+[@stdlib/blas/base/sdsdot]: https://github.com/stdlib-js/blas-base-sdsdot
 
-[@stdlib/blas/sdot]: https://github.com/stdlib-js/blas-sdot/tree/umd
+[@stdlib/blas/sdot]: https://github.com/stdlib-js/blas-sdot
 
 <!-- </related-links> -->
 
