@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-04-14)
+## Unreleased (2025-05-20)
 
 <section class="features">
 
@@ -20,9 +20,9 @@
 
 ### Closed Issues
 
-This release closes the following issue:
+A total of 2 issues were closed in this release:
 
-[#5905](https://github.com/stdlib-js/stdlib/issues/5905)
+[#5905](https://github.com/stdlib-js/stdlib/issues/5905), [#6992](https://github.com/stdlib-js/stdlib/issues/6992)
 
 </section>
 
@@ -34,6 +34,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`3723b66`](https://github.com/stdlib-js/stdlib/commit/3723b660d122770a9b4862695fd5c02eb5da352b) - **chore:** fix EditorConfig lint errors [(#7001)](https://github.com/stdlib-js/stdlib/pull/7001) _(by Lalit Narayan Yadav)_
 -   [`b419e98`](https://github.com/stdlib-js/stdlib/commit/b419e9801458941ec974bd04be949735614d1432) - **bench:** suppress uninitialized variable warning [(#5918)](https://github.com/stdlib-js/stdlib/pull/5918) _(by Hemant M Mehta)_
 -   [`62364f6`](https://github.com/stdlib-js/stdlib/commit/62364f62ea823a3b52c2ad25660ecd80c71f8f36) - **style:** fix C comment alignment _(by Philipp Burckhardt)_
 -   [`2bedae9`](https://github.com/stdlib-js/stdlib/commit/2bedae91dbdd0080b38ae0413f5e8f26b88db95b) - **feat:** add C `ndarray` implementation for `blas/base/sdot` [(#2919)](https://github.com/stdlib-js/stdlib/pull/2919) _(by Aman Bhansali, Athan Reines)_
@@ -49,11 +50,12 @@ This release closes the following issue:
 
 ### Contributors
 
-A total of 4 people contributed to this release. Thank you to the following contributors:
+A total of 5 people contributed to this release. Thank you to the following contributors:
 
 -   Aman Bhansali
 -   Athan Reines
 -   Hemant M Mehta
+-   Lalit Narayan Yadav
 -   Philipp Burckhardt
 
 </section>
