@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-06-07)
+## Unreleased (2025-07-21)
 
 <section class="features">
 
@@ -34,6 +34,7 @@ A total of 2 issues were closed in this release:
 
 <details>
 
+-   [`d559fd7`](https://github.com/stdlib-js/stdlib/commit/d559fd70de9ec9b1d72d22543876f380e4062c69) - **refactor:** update include header guards for single precision real packages [(#7710)](https://github.com/stdlib-js/stdlib/pull/7710) _(by Shabareesh Shetty)_
 -   [`09c9ceb`](https://github.com/stdlib-js/stdlib/commit/09c9ceb58c6dd23c10f1980094851983c57d693f) - **chore:** fix formatting _(by Athan Reines)_
 -   [`51bf6f9`](https://github.com/stdlib-js/stdlib/commit/51bf6f9d2bb027aacecda87e02f957badbc246b0) - **bench:** fix formatting _(by Athan Reines)_
 -   [`c3a2ca6`](https://github.com/stdlib-js/stdlib/commit/c3a2ca66a8adc663cc4e5ab5f6c7b1b529e895ca) - **refactor:** rename variable in `blas/base/sdot` [(#7210)](https://github.com/stdlib-js/stdlib/pull/7210) _(by Shabareesh Shetty)_
