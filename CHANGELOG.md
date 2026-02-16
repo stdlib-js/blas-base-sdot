@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`c62573e`](https://github.com/stdlib-js/stdlib/commit/c62573efea9252a74eeb9056ca91c55485199286) - **bench:** refactor to use dynamic memory allocation in `blas/base/sdot` [(#10173)](https://github.com/stdlib-js/stdlib/pull/10173) _(by Prajjwal Bajpai)_
 -   [`80b62e9`](https://github.com/stdlib-js/stdlib/commit/80b62e996caedc9d65e3c4d319b2abd01d0429e7) - **bench:** refactor to use string interpolation in `blas/base/sdot` [(#10175)](https://github.com/stdlib-js/stdlib/pull/10175) _(by Prajjwal Bajpai)_
 
 </details>
